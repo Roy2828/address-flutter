@@ -398,7 +398,7 @@ class HomeWidgetState extends State<HomeWidget>
 
     if (index == 0) {
       await Future.delayed(const Duration(milliseconds: 200));
-      return DbManager.instance.getProvinceData();
+      return HttpUtils.getCityData("4744");
     } else {
       if (_currentType == 0) {
         return DbManager.instance.getCityData(code);
@@ -416,11 +416,9 @@ class HomeWidgetState extends State<HomeWidget>
 
         switch(index){
           case 1://获取城市
-            return DbManager.instance.getCityData(code);
           case 2://获取地区
-            return DbManager.instance.getAreaData(code);
           case 3://获取街道
-            return DbManager.instance.getStreetData(code);
+          return HttpUtils.getCityData(code);
         }
         return Future.value([]);
       }
