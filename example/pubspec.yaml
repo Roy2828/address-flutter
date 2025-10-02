@@ -1,0 +1,29 @@
+name: city_picker_example
+description: Demo for how to use the city_pickers plugin.
+
+environment:
+  sdk: '>=3.2.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  flutter_city_picker:
+    path: ../
+  provider: ^6.1.1
+  dio: ^5.3.3
+  flutter_colorpicker: ^1.0.3
+  lpinyin: ^2.0.3
+  sqflite: ^2.4.1
+  json_annotation: ^4.9.0
+
+flutter:
+
+  uses-material-design: true
+
+
+  assets:
+    - assets/db/
+dev_dependencies:
+  json_serializable: ^6.9.0
+  build_runner: ^2.4.13
