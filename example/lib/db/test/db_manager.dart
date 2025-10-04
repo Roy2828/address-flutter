@@ -1,12 +1,9 @@
+import 'package:city_picker_example/db/base_data_base.dart';
 import 'package:city_picker_example/db/test/bean/address_common_entity.dart';
-import 'package:city_picker_example/db/test/receipt/area_db.dart';
-import 'package:city_picker_example/db/test/receipt/city_db.dart';
-import 'package:city_picker_example/db/test/receipt/province_db.dart';
-import 'package:city_picker_example/db/test/receipt/street_db.dart';
+
+
 import 'package:flutter_city_picker/model/address.dart';
 import 'package:lpinyin/lpinyin.dart';
-import 'ImBaseDataBase.dart';
-import 'data_db_method.dart';
 
 
 class DbManager {
@@ -16,10 +13,8 @@ class DbManager {
 
   DbManager._() {}
 
-  DataDBMethod provinceDb = ProvinceDb();
-  DataDBMethod cityDb = CityDb();
-  DataDBMethod areaDb = AreaDb();
-  DataDBMethod streetDb = StreetDb();
+  BaseDataBase db = BaseDataBase();
+
 
   Future<List<AddressNode>> query(
       Future<List<Map<String, dynamic>>?> future) async {
@@ -32,6 +27,9 @@ class DbManager {
 
     for (Map<String, dynamic> item in addressData) {
       AddressCommonEntity data = AddressCommonEntity.fromJson(item);
+      if(data.code=="52993" || data.code == "53283" || data.code == "84"){//港澳，海外，钓鱼岛
+        continue;
+      }
       String letter = PinyinHelper.getFirstWordPinyin(data.name ?? "")
           .substring(0, 1)
           .toUpperCase();
@@ -47,19 +45,10 @@ class DbManager {
     return result;
   }
 
-  Future<List<AddressNode>> getProvinceData() async {
-    return await query(provinceDb.queryProvince());
-  }
+
 
   Future<List<AddressNode>> getCityData(String provinceCode) async {
-    return await query(cityDb.queryCity(provinceCode));
+    return await query(db.query(provinceCode));
   }
 
-  Future<List<AddressNode>> getAreaData(String cityCode) async {
-    return await query(areaDb.queryArea(cityCode));
-  }
-
-  Future<List<AddressNode>> getStreetData(String areaCode) async {
-    return await query(streetDb.queryStreet(areaCode));
-  }
 }

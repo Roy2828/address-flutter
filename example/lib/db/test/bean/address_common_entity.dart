@@ -1,3 +1,4 @@
+import 'package:city_picker_example/db/test/json_converter/int_to_string_converter.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'address_common_entity.g.dart';
@@ -5,6 +6,7 @@ part 'address_common_entity.g.dart';
 @JsonSerializable()
 class AddressCommonEntity {
   String? name;
+  @StringConverter()
   String? code;
   String? provinceCode;
   String? cityCode;

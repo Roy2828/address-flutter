@@ -12,7 +12,7 @@ class SqlDataBaseHelper {
 
   SqlDataBaseHelper._() {}
 
-  static const _DATABASE_NAME = "address.sqlite"; //数据库名字
+  static const _DATABASE_NAME = "jd.db"; //数据库名字
   static const _DATABASE_VERSION = 1; //当前版本
   Database? _database;
 

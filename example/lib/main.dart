@@ -1,8 +1,7 @@
 import 'dart:async';
 
 import 'package:city_picker_example/db/test/db_manager.dart';
-import 'package:city_picker_example/db/test/receipt/city_db.dart';
-import 'package:city_picker_example/db/test/receipt/province_db.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_city_picker/city_picker.dart';
 import 'package:flutter_city_picker/model/address.dart';
@@ -398,7 +397,7 @@ class HomeWidgetState extends State<HomeWidget>
 
     if (index == 0) {
       await Future.delayed(const Duration(milliseconds: 200));
-      return HttpUtils.getCityData("4744");
+      return DbManager.instance.getCityData("0");
     } else {
       if (_currentType == 0) {
         return DbManager.instance.getCityData(code);
@@ -418,7 +417,7 @@ class HomeWidgetState extends State<HomeWidget>
           case 1://获取城市
           case 2://获取地区
           case 3://获取街道
-          return HttpUtils.getCityData(code);
+          return DbManager.instance.getCityData(code);
         }
         return Future.value([]);
       }
