@@ -1,24 +1,4 @@
-### 地址选择器
 
-[![](https://img.shields.io/pub/v/flutter_city_picker.svg?color=blue)](https://pub.dev/packages/flutter_city_picker)
-[![](https://img.shields.io/github/last-commit/wenchaosong/FlutterCityPicker?color=yellow)](https://github.com/wenchaosong/FlutterCityPicker)
-
-由于地址选择的数据来源会更新，为了统一，在后台配置一份城市数据，前端获取，否则各个平台都配置一份数据，维护会很麻烦，而且有可能每个平台城市的数据结构都不一样。
-本库就是由此而来，数据从后台实时获取，只要解析成固定的数据结构就可以
-
-### Demo
-[web 预览](https://xiaomsh.github.io/FlutterCityPicker/)
-
-[![](https://img.shields.io/badge/click_to_download_APK-FlutterCityPicker-ff69b4)](https://github.com/wenchaosong/FlutterCityPicker/releases/download/v2.1.1/app-release.apk)
-
-![效果示例](https://img.alicdn.com/imgextra/i4/2315514881/O1CN01Y3VhZC1lvXyQ1bV6n_!!2315514881.gif)
-
-#### 导入方式
-
-```
-dependencies:
-    flutter_city_picker: ^2.1.1
-```
 
 #### 使用方法
 
